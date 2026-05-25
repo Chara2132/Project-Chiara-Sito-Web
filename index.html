@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetto Chiara - IA Locale su Raspberry Pi 4</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Progetto Chiara</div>
+        <ul class="nav-links">
+            <li><a href="#intro">Intro</a></li>
+            <li><a href="#hardware">Hardware</a></li>
+            <li><a href="#software">Software</a></li>
+            <li><a href="#llm">Modello LLM</a></li>
+            <li><a href="#sfide">Sfide</a></li>
+        </ul>
+    </nav>
+
+    <header id="intro" class="hero section">
+        <div class="container fade-in">
+            <span class="badge">Sviluppo di un Sistema di IA Locale</span>
+            <h1>Raspberry Pi 4 Model B</h1>
+            <p class="subtitle">Elaborazione vocale locale con LLM Qwen 7B, input e sintesi vocale on-device.</p>
+            <div class="hero-buttons">
+                <a href="#hardware" class="btn id-btn">Esplora il Progetto</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section motivation bg-darker">
+        <div class="container grid-2">
+            <div class="card fade-in">
+                <h2>Motivazione & Genesi</h2>
+                <p>L'interesse è maturato all'inizio dell'ultimo anno di istruzione secondaria superiore, in concomitanza con la rapida evoluzione dei sistemi di Intelligenza Artificiale. L'ispirazione è nata dalla visione di un'architettura IA locale fluida, performante e in tempo reale.</p>
+            </div>
+            <div class="card fade-in">
+                <h2>Obiettivi Principali</h2>
+                <ul>
+                    <li><strong>Assistente Intelligente:</strong> Permettere a Chiara di comunicare e manipolare il PC tramite istruzioni vocali.</li>
+                    <li><strong>Privacy Totale:</strong> Mantenere tutto dentro casa, senza abbonamenti o richieste a risorse esterne.</li>
+                    <li><strong>Conoscenza Libera:</strong> Restare informati su qualunque notizia nel mondo chiedendo semplicemente aggiornamenti al PC.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="hardware" class="section">
+        <div class="container fade-in">
+            <h2 class="section-title">Configurazione Hardware</h2>
+            <p class="section-subtitle">Setup completo ottimizzato per l'elaborazione vocale ed esecuzione offline.</p>
+            
+            <div class="grid-3">
+                <div class="hw-card">
+                    <h3>Core System</h3>
+                    <ul>
+                        <li>Raspberry Pi 4 Model B (8GB RAM)</li>
+                        <li>Alimentatore dedicato 5V/3A</li>
+                        <li>Protocollo SSH per gestione remota</li>
+                    </ul>
+                </div>
+                <div class="hw-card">
+                    <h3>I/O Vocale & Video</h3>
+                    <ul>
+                        <li>Microfono USB per acquisizione vocale</li>
+                        <li>Casse audio per output della sintesi</li>
+                        <li>Cavo HDMI per monitor e visione del personaggio</li>
+                    </ul>
+                </div>
+                <div class="hw-card">
+                    <h3>Storage Esterno</h3>
+                    <ul>
+                        <li>Memoria USB esterna ad alta capacità</li>
+                        <li>Dedicata al supporto dei modelli LLM pesanti</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="software" class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title fade-in">Architettura Software</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="step-num">1</div>
+                    <h3>Acquisizione & Preprocessing</h3>
+                    <p>Acquisizione audio tramite microfono USB dedicato. Conversione speech-to-text con librerie ottimizzate e preprocessing avanzato per ridurre al minimo rumore e latenza.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="step-num">2</div>
+                    <h3>Cervello Linguistico (LLM)</h3>
+                    <p>Modello Qwen 7B caricato da storage esterno. Elaborazione linguistica contestuale in tempo reale basata su un codice ibrido C++ e Python per massimizzare le performance.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="step-num">3</div>
+                    <h3>Sintesi Vocale Naturale</h3>
+                    <p>Utilizzo di Piper come motore di sintesi vocale open-source. Modello <code>paola.onnx</code> per una voce personalizzata e output audio naturale con pitch modificato.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="llm" class="section llm-section">
+        <div class="container grid-2 fade-in">
+            <div>
+                <h2>Integrazione Modello LLM Qwen 7B</h2>
+                <p>Esecuzione interamente locale per garantire una privacy totale dei dati e un funzionamento offline completo, senza alcuna dipendenza da servizi cloud di terze parti.</p>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-val">~4 GB</span>
+                    <span class="metric-label">Dimensione Modello Quantizzato</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-val">2-3</span>
+                    <span class="metric-label">Parole al secondo generate in tempo reale</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sfide" class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title fade-in">Sfide & Soluzioni Implementative</h2>
+            <div class="grid-3">
+                <div class="challenge-card fade-in">
+                    <div class="icon">⚠️</div>
+                    <h3>Risorse Limitate</h3>
+                    <p><strong>Soluzione:</strong> Utilizzo di storage esterno USB per non sovraccaricare la MicroSD e ottimizzazione aggressiva della memoria RAM da 8GB.</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <div class="icon">⚡</div>
+                    <h3>Latenza di Inferenza</h3>
+                    <p><strong>Soluzione:</strong> Tuning mirato dei parametri del modello e applicazione della quantizzazione a 4-bit per sbloccare performance fluide.</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <div class="icon">🔄</div>
+                    <h3>Sincronizzazione</h3>
+                    <p><strong>Soluzione:</strong> Sviluppo di un codice ibrido C++/Python con binding ottimizzati e gestione asincrona per legare audio e video del personaggio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Progetto Chiara © 2026 — Sistema IA Vocale Locale su RPi4</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
